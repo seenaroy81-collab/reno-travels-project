@@ -6,59 +6,59 @@
 
 @layer base {
   :root {
-    /* Ocean Blue - Trust & Professionalism */
-    --background: 210 25% 98%;
-    --foreground: 215 35% 15%;
+    /* Base Colors - Porcelain & Midnight */
+    --background: 210 20% 98%;
+    /* Soft Porcelain White */
+    --foreground: 222 47% 11%;
+    /* Deep Midnight Blue */
 
     --card: 0 0% 100%;
-    --card-foreground: 215 35% 15%;
+    --card-foreground: 222 47% 11%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 215 35% 15%;
+    --popover-foreground: 222 47% 11%;
 
-    /* Deep Ocean Primary */
-    --primary: 210 85% 25%;
-    --primary-foreground: 0 0% 100%;
+    /* Primary - Midnight Blue */
+    --primary: 222 47% 11%;
+    --primary-foreground: 210 40% 98%;
 
-    /* Warm Sand Secondary */
-    --secondary: 35 30% 95%;
-    --secondary-foreground: 215 35% 15%;
+    /* Secondary - Muted Sand */
+    --secondary: 40 20% 94%;
+    --secondary-foreground: 222 47% 11%;
 
-    --muted: 210 20% 95%;
-    --muted-foreground: 215 15% 45%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
 
-    /* Coral Accent - Adventure & Warmth */
-    --accent: 15 85% 55%;
+    /* Accent - Muted Gold */
+    --accent: 38 45% 55%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 210 20% 90%;
-    --input: 210 20% 90%;
-    --ring: 210 85% 25%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222 47% 11%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
-    /* Custom Travel Theme Colors */
-    --ocean: 210 85% 25%;
-    --ocean-light: 210 60% 45%;
-    --ocean-dark: 215 90% 15%;
-    --coral: 15 85% 55%;
-    --coral-light: 15 80% 65%;
-    --sunset: 25 95% 55%;
-    --sand: 35 30% 95%;
-    --palm: 150 45% 35%;
+    /* Custom Travel Theme - Premium Palette */
+    --ocean-deep: 222 47% 11%;
+    --ocean-light: 221 35% 25%;
+    /* Lighter shade of midnight */
+    --gold: 38 45% 55%;
+    --gold-light: 38 60% 75%;
+    --sand: 40 20% 94%;
 
-    /* Gradients */
-    --gradient-ocean: linear-gradient(135deg, hsl(210 85% 25%), hsl(210 60% 45%));
-    --gradient-sunset: linear-gradient(135deg, hsl(15 85% 55%), hsl(25 95% 55%));
-    --gradient-hero: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.5) 100%);
+    /* Gradients - Subtle & Elegant */
+    --gradient-ocean: linear-gradient(135deg, hsl(222 47% 11%), hsl(221 35% 25%));
+    --gradient-gold: linear-gradient(135deg, hsl(38 45% 55%), hsl(38 45% 45%));
+    --gradient-hero: linear-gradient(180deg, rgba(15, 23, 42, 0.4) 0%, rgba(15, 23, 42, 0.2) 50%, rgba(15, 23, 42, 0.6) 100%);
 
-    /* Shadows */
-    --shadow-soft: 0 4px 20px -2px rgba(0, 50, 100, 0.08);
-    --shadow-card: 0 8px 30px -5px rgba(0, 50, 100, 0.12);
-    --shadow-elevated: 0 20px 50px -10px rgba(0, 50, 100, 0.2);
+    /* Shadows - Layered & Smooth */
+    --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    --shadow-card: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+    --shadow-elevated: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -71,33 +71,33 @@
   }
 
   .dark {
-    --background: 215 35% 10%;
-    --foreground: 210 25% 95%;
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
 
-    --card: 215 30% 15%;
-    --card-foreground: 210 25% 95%;
+    --card: 222 47% 13%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 215 30% 15%;
-    --popover-foreground: 210 25% 95%;
+    --popover: 222 47% 13%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 210 70% 55%;
-    --primary-foreground: 215 35% 10%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222 47% 11%;
 
-    --secondary: 215 25% 20%;
-    --secondary-foreground: 210 25% 95%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 215 25% 20%;
-    --muted-foreground: 210 15% 60%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 15 75% 50%;
+    --accent: 38 45% 55%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 215 25% 25%;
-    --input: 215 25% 25%;
-    --ring: 210 70% 55%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -119,7 +119,12 @@
     @apply bg-background text-foreground font-sans antialiased;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-display;
   }
 }
@@ -169,8 +174,15 @@
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 @keyframes fadeUp {
@@ -178,6 +190,7 @@
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -185,8 +198,13 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 /* Smooth scrolling */

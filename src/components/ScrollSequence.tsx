@@ -78,7 +78,7 @@ export const ScrollSequence = ({ frameCount, containerRef, basePath = '/frames' 
                 }
 
                 // Fill bg
-                ctx.fillStyle = '#1F2226';
+                ctx.fillStyle = '#0F172A';
                 ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
 
                 ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
@@ -108,10 +108,10 @@ export const ScrollSequence = ({ frameCount, containerRef, basePath = '/frames' 
     // If loading, show spinner
     if (loading) {
         return (
-            <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#1F2226] text-white">
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#0F172A] text-white">
                 <div className="flex flex-col items-center gap-4">
-                    <div className="h-12 w-12 animate-spin rounded-full border-4 border-[#0077B6] border-t-transparent"></div>
-                    <p className="font-mono text-sm tracking-widest text-[#FF6B61]">{progress}% READY</p>
+                    <div className="h-12 w-12 animate-spin rounded-full border-4 border-accent border-t-transparent"></div>
+                    <p className="font-mono text-sm tracking-widest text-accent">LOADING EXPERIENCE</p>
                 </div>
             </div>
         );
@@ -125,7 +125,7 @@ export const ScrollSequence = ({ frameCount, containerRef, basePath = '/frames' 
         }
         return (
             <div
-                className="fixed inset-0 z-0 flex items-center justify-center bg-[#1F2226]"
+                className="fixed inset-0 z-0 flex items-center justify-center bg-[#0F172A]"
                 style={{
                     backgroundImage: `url(${firstImage.src})`,
                     backgroundSize: 'contain',
@@ -140,7 +140,7 @@ export const ScrollSequence = ({ frameCount, containerRef, basePath = '/frames' 
         <canvas
             ref={canvasRef}
             className="fixed inset-0 z-0 h-full w-full object-contain"
-            style={{ backgroundColor: '#1F2226' }}
+            style={{ backgroundColor: '#0F172A' }}
         />
     );
 };

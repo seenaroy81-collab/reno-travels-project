@@ -2,6 +2,8 @@ import { useEffect, useRef } from "react";
 import Lenis from "lenis";
 import { Link } from "react-router-dom";
 import { ArrowRight, MapPin, Clock, Star, Plane, Shield, Users, Award } from "lucide-react";
+import { Magnetic } from "@/components/ui/magnetic";
+import { TiltCard } from "@/components/ui/tilt-card";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Layout } from "@/components/layout/Layout";
@@ -61,7 +63,7 @@ const Index = () => {
       <div ref={heroRef} className="relative h-[150vh]">
         <div className="sticky top-0 flex h-screen items-center justify-center overflow-hidden">
           {/* Cinema Box Container */}
-          <div className="relative w-full h-full md:h-auto md:aspect-video md:max-w-5xl overflow-hidden md:rounded-2xl bg-[#1F2226] shadow-2xl">
+          <div className="relative w-full h-full md:h-auto md:aspect-video md:max-w-5xl overflow-hidden md:rounded-2xl bg-[#0F172A] shadow-2xl">
             {/* Mobile Scroll Sequence */}
             <div className="block md:hidden absolute inset-0 -z-0">
               <ScrollSequence frameCount={40} containerRef={heroRef} basePath="/mobile-frames" />
@@ -158,43 +160,45 @@ const Index = () => {
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {destinations.slice(0, 6).map((dest, index) => (
-              <motion.div
-                key={dest.id}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
-              >
-                <Link to={`/destinations/${dest.id}`}>
-                  <Card variant="destination" className="group overflow-hidden">
-                    <div className="aspect-[4/3] overflow-hidden">
+            {destinations.slice(0, 6).map((destination, index) => (
+              <TiltCard key={index} className="h-full">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  viewport={{ once: true }}
+                  className="h-full"
+                >
+                  <Card className="group overflow-hidden border-none h-full shadow-lg hover:shadow-2xl transition-all duration-500">
+                    <div className="relative h-64 overflow-hidden">
                       <img
-                        src={dest.image}
-                        alt={dest.name}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        src={destination.image}
+                        alt={destination.name}
+                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                       />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
-                    <CardContent className="p-5">
-                      <div className="flex items-center gap-2 text-muted-foreground text-sm mb-2">
-                        <MapPin className="h-4 w-4" />
-                        {dest.country}
-                      </div>
-                      <h3 className="font-display text-xl font-semibold mb-2">{dest.name}</h3>
-                      <p className="text-muted-foreground text-sm line-clamp-2 mb-3">
-                        {dest.description}
-                      </p>
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-1 text-sm text-muted-foreground">
-                          <Clock className="h-4 w-4" />
-                          {dest.duration}
+                    <CardContent className="p-6">
+                      <div className="mb-2 flex items-center justify-between">
+                        <h3 className="text-xl font-bold">{destination.name}</h3>
+                        <div className="flex items-center text-accent">
+                          <Star className="mr-1 h-4 w-4 fill-current" />
+                          <span className="text-sm font-medium">4.8</span>
                         </div>
-                        <span className="text-accent font-semibold">{dest.price}</span>
+                      </div>
+                      <p className="mb-4 text-muted-foreground">{destination.description}</p>
+                      <div className="flex items-center justify-between">
+                        <span className="text-lg font-bold text-primary">
+                          {destination.price}
+                        </span>
+                        <Button variant="ghost" size="sm" asChild className="group-hover:translate-x-1 transition-transform text-accent">
+                          <Link to={`/destinations/${destination.id}`}>Details <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                        </Button>
                       </div>
                     </CardContent>
                   </Card>
-                </Link>
-              </motion.div>
+                </motion.div>
+              </TiltCard>
             ))}
           </div>
         </div>
