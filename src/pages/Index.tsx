@@ -9,6 +9,7 @@ import { destinations } from "@/data/destinations";
 import { tourPackages } from "@/data/packages";
 import { ScrollSequence } from "@/components/ScrollSequence";
 import { TextOverlay } from "@/components/TextOverlay";
+import { Testimonials } from "@/components/Testimonials";
 import { motion } from "framer-motion";
 
 const stats = [
@@ -224,16 +225,17 @@ const Index = () => {
                 key={pkg.id}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, margin: "-50px" }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
+                whileHover={{ y: -5, transition: { duration: 0.2 } }}
               >
                 <Link to={`/packages/${pkg.id}`}>
-                  <Card variant="destination" className="group overflow-hidden h-full">
+                  <Card variant="destination" className="group overflow-hidden h-full hover:shadow-2xl transition-all duration-300">
                     <div className="aspect-video overflow-hidden relative">
                       <img
                         src={pkg.image}
                         alt={pkg.name}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                       />
                       {pkg.originalPrice && (
                         <span className="absolute top-4 left-4 bg-accent text-accent-foreground px-3 py-1 rounded-full text-sm font-medium">
@@ -251,7 +253,7 @@ const Index = () => {
                           {pkg.rating} ({pkg.reviews})
                         </div>
                       </div>
-                      <h3 className="font-display text-xl font-semibold mb-2">{pkg.name}</h3>
+                      <h3 className="font-display text-xl font-semibold mb-2 group-hover:text-primary transition-colors">{pkg.name}</h3>
                       <p className="text-muted-foreground text-sm line-clamp-2 mb-3">
                         {pkg.description}
                       </p>
@@ -278,26 +280,42 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Testimonials Section */}
+      <Testimonials />
+
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-ocean relative z-10">
-        <div className="container px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-primary-foreground mb-4">
-            Ready to Start Your Adventure?
-          </h2>
-          <p className="text-primary-foreground/80 max-w-2xl mx-auto mb-8">
-            Contact our travel experts today and let us help you plan the trip of a lifetime.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="hero" size="lg" asChild>
-              <Link to="/contact">
-                Get in Touch
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
-            <Button variant="hero-outline" size="lg" asChild>
-              <Link to="/services">Our Services</Link>
-            </Button>
-          </div>
+      <section className="py-20 bg-gradient-ocean relative z-10 overflow-hidden">
+        {/* Decorative background elements */}
+        <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+          <div className="absolute top-10 left-10 w-64 h-64 bg-white rounded-full blur-3xl" />
+          <div className="absolute bottom-10 right-10 w-96 h-96 bg-white rounded-full blur-3xl opacity-50" />
+        </div>
+
+        <div className="container px-4 text-center relative z-10">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-3xl md:text-5xl font-display font-bold text-primary-foreground mb-6 drop-shadow-md">
+              Ready to Start Your Adventure?
+            </h2>
+            <p className="text-primary-foreground/90 max-w-2xl mx-auto mb-10 text-lg">
+              Contact our travel experts today and let us help you plan the trip of a lifetime.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button variant="hero" size="lg" asChild className="shadow-lg hover:shadow-xl hover:scale-105 transition-all">
+                <Link to="/contact">
+                  Get in Touch
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
+              <Button variant="hero-outline" size="lg" asChild className="hover:bg-white/10">
+                <Link to="/services">Our Services</Link>
+              </Button>
+            </div>
+          </motion.div>
         </div>
       </section>
     </Layout>
